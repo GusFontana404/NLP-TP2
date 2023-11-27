@@ -175,3 +175,7 @@ def detectar_objeto(img_bin, img_orig):
 
   #Ploteo
   plt.figure(figsize=(12, 8)),plt.imshow(imagen_contornos),plt.axis('off') ,plt.show()
+
+"""# **Mostrar resultados:**"""
+
+detectar_objeto(clausura_img,img)
