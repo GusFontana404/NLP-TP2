@@ -86,12 +86,16 @@ def contar_huecos(img_original, imagen_binaria, posicion):
 
   return contornos_internos, roi, gau, can, dibujar_contorno
 
+"""### **Mostrar ejemplo de procesamiento**"""
+
+_, roi, gau, can, dib_cont = contar_huecos(img_prueba,clausura_img,10)
+
 #Mostrar la imagen original y los resultados
 plt.figure(figsize=(15,8),facecolor='#333333')
-plt.subplot(241), plt.imshow(contar_huecos(img_prueba,clausura_img,10)[1], cmap='gray'), plt.title('ROI dado',color='white'),plt.axis('off')
-plt.subplot(242), plt.imshow(contar_huecos(img_prueba,clausura_img,10)[2], cmap='gray'), plt.title('Imagen con borrosidad (Gauss)',color='white'),plt.axis('off')
-plt.subplot(243), plt.imshow(contar_huecos(img_prueba,clausura_img,10)[3], cmap='gray'), plt.title('Detección de lineas (Canny)',color='white'),plt.axis('off')
-plt.subplot(244), plt.imshow(contar_huecos(img_prueba,clausura_img,10)[4], cmap='gray'), plt.title('Imagen con contornos',color='white'),plt.axis('off')
+plt.subplot(241), plt.imshow(roi, cmap='gray'), plt.title('ROI dado',color='white'),plt.axis('off')
+plt.subplot(242), plt.imshow(gau, cmap='gray'), plt.title('Imagen con borrosidad (Gauss)',color='white'),plt.axis('off')
+plt.subplot(243), plt.imshow(can, cmap='gray'), plt.title('Detección de lineas (Canny)',color='white'),plt.axis('off')
+plt.subplot(244), plt.imshow(dib_cont, cmap='gray'), plt.title('Imagen con contornos',color='white'),plt.axis('off')
 plt.subplots_adjust(hspace=0.1)
 plt.show()
 
